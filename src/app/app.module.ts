@@ -17,6 +17,7 @@ import { MatSelectModule } from '@angular/material/select';
 import { SigninComponent } from './components/signin/signin.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { HttpClientModule } from '@angular/common/http';
+import { ForgetPasswordComponent } from './components/forget-password/forget-password.component';
 
 @NgModule({
   declarations: [
@@ -24,6 +25,7 @@ import { HttpClientModule } from '@angular/common/http';
     SignupComponent,
     SigninComponent,
     DashboardComponent,
+    ForgetPasswordComponent,
   ],
   imports: [
     BrowserModule,

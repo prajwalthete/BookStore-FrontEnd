@@ -15,4 +15,8 @@ export class UserService {
   registerApi(data: object) {
     return this.httpService.registerUser('User/register', data)
   }
+  forgotPasswordApi(data: object) {
+    return this.httpService.forgotPassword('User/ForgetPassword', data)
+  }
+
 }
