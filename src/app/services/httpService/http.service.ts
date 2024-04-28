@@ -21,5 +21,8 @@ constructor(private httpClient: HttpClient) { }
     forgotPassword(endpoint: string, data: Object): Observable<any> {
       return this.httpClient.post<any>(this.BaseUrl + endpoint, data); // Making a POST request to forgot password endpoint
     };
+    resetPassword(endpoint: string, data: Object): Observable<any> {
+      return this.httpClient.post<any>(this.BaseUrl + endpoint, data);
+    }
 
 }

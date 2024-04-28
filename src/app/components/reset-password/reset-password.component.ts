@@ -4,11 +4,12 @@ import { Router } from '@angular/router';
 import { UserService } from 'src/app/services/userService/user.service';
 
 @Component({
-  selector: 'app-forget-password',
-  templateUrl: './forget-password.component.html',
-  styleUrls: ['./forget-password.component.scss']
+  selector: 'app-reset-password',
+  templateUrl: './reset-password.component.html',
+  styleUrls: ['./reset-password.component.scss']
 })
-export class ForgetPasswordComponent implements OnInit {
+export class ResetPasswordComponent implements OnInit {
+ 
   loginForm!: FormGroup;
   submitted = false;
   
@@ -16,8 +17,10 @@ export class ForgetPasswordComponent implements OnInit {
 
   ngOnInit(): void {
     this.loginForm = this.formBuilder.group({
-      email: ['', [Validators.required, Validators.email]],
-         });
+      email: ['', [Validators.required]],
+      password: ['', Validators.required],
+      otp:['',[Validators.required]]
+    });
   }
 
   // Convenience getter for easy access to form fields
@@ -30,24 +33,25 @@ export class ForgetPasswordComponent implements OnInit {
     if (this.loginForm.invalid) {
       return;
     }
-    const {email}= this.loginForm.value;
+    const {email,otp, password}= this.loginForm.value;
 
-    this.userService.forgotPasswordApi({
+    this.userService.resetPsswordApi({
       email : email,
-    }).subscribe( results =>{localStorage.setItem("AuthToken", results.data)
-    this.router.navigate(['/ResetPassword'])
-
-    console.log(results);
-     
+      otp: otp,
+      newPassword : password
+    }).subscribe( results =>{ console.log(results);
+      this.router.navigate([''])
     },error=>{console.log(error)});
 
 
-    console.log('Password Send successfully On your Email', this.loginForm.value);
+    console.log('Login successful', this.loginForm.value);
   }
 
   
   handleCreateAccount(){
     this.router.navigate(['/signup']);
   }
-  
-}
+  handleForgetPassword(){
+    this.router.navigate(['/ForgetPassword']);
+  }
+} 
