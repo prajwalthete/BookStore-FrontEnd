@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { UserService } from 'src/app/services/userService/user.service';
 
 @Component({
   selector: 'app-signin',
@@ -15,7 +16,7 @@ export class SigninComponent implements OnInit {
   loginForm!: FormGroup;
   submitted = false;
   
-  constructor(private formBuilder: FormBuilder, private router: Router) { }
+  constructor( private userService:UserService, private formBuilder: FormBuilder, private  router: Router) { }
 
   ngOnInit(): void {
     this.loginForm = this.formBuilder.group({
@@ -34,12 +35,22 @@ export class SigninComponent implements OnInit {
     if (this.loginForm.invalid) {
       return;
     }
+    const {email, password}= this.loginForm.value;
 
-    // Handle login logic here, for example, navigate to dashboard
+    this.userService.loginApi({
+      email : email,
+      password : password
+    }).subscribe( results =>{localStorage.setItem("AuthToken", results.data)
+     console.log(results);
+     
+     // this.router.navigate(['/dashboard'])
+    },error=>{console.log(error)});
+
+
     console.log('Login successful', this.loginForm.value);
-    this.router.navigate(['/dashboard/notes']);
   }
 
+  
   handleCreateAccount(){
     this.router.navigate(['/signup']);
   }

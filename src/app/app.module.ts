@@ -15,12 +15,15 @@ import { FormsModule } from '@angular/forms';
 import { MatCardModule } from '@angular/material/card';
 import { MatSelectModule } from '@angular/material/select';
 import { SigninComponent } from './components/signin/signin.component';
+import { DashboardComponent } from './components/dashboard/dashboard.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
     AppComponent,
     SignupComponent,
     SigninComponent,
+    DashboardComponent,
   ],
   imports: [
     BrowserModule,
@@ -35,7 +38,8 @@ import { SigninComponent } from './components/signin/signin.component';
     MatRadioModule,
     FormsModule,
     MatCardModule,
-    MatSelectModule
+    MatSelectModule,
+    HttpClientModule
     
   ],
   providers: [],
