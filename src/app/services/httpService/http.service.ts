@@ -24,5 +24,9 @@ constructor(private httpClient: HttpClient) { }
     resetPassword(endpoint: string, data: Object): Observable<any> {
       return this.httpClient.post<any>(this.BaseUrl + endpoint, data);
     }
+    getAllBooks( endpoint: string): Observable<any> {
+      return this.httpClient.get<any>(this.BaseUrl + endpoint )
+    }
+
 
 }
