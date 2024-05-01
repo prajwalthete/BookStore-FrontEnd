@@ -1,10 +1,11 @@
 import { Injectable } from '@angular/core';
+import { BookObj } from 'src/assets/type';
 
 @Injectable({
   providedIn: 'root'
 })
 export class DataService {
-  book!: { bookID: number, bookName: string, description: string, author: string, price: number, bookImg: string, quantitys: number };
+  book!: BookObj;
 
   constructor() { }
   setBook(book: any) {

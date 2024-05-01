@@ -18,6 +18,18 @@ import { SigninComponent } from './components/signin/signin.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ForgetPasswordComponent } from './components/forget-password/forget-password.component';
+import { ResetPasswordComponent } from './components/reset-password/reset-password.component';
+import { BookstoreheaderComponent } from './components/bookstoreheader/bookstoreheader.component';
+
+//header
+import { CommonModule } from '@angular/common';
+import { MatMenuModule } from '@angular/material/menu';
+import { MatTooltipModule } from '@angular/material/tooltip';
+import { DisplaybookComponent } from './components/displaybook/displaybook.component';
+import { BookcontainerComponent } from './components/bookcontainer/bookcontainer.component';
+import { QuickviewComponent } from './components/quickview/quickview.component';
+
+
 
 @NgModule({
   declarations: [
@@ -26,6 +38,11 @@ import { ForgetPasswordComponent } from './components/forget-password/forget-pas
     SigninComponent,
     DashboardComponent,
     ForgetPasswordComponent,
+    ResetPasswordComponent,
+    BookstoreheaderComponent,
+    DisplaybookComponent,
+    BookcontainerComponent,
+    QuickviewComponent,
   ],
   imports: [
     BrowserModule,
@@ -41,7 +58,10 @@ import { ForgetPasswordComponent } from './components/forget-password/forget-pas
     FormsModule,
     MatCardModule,
     MatSelectModule,
-    HttpClientModule
+    HttpClientModule,
+    CommonModule,
+    MatMenuModule,
+    MatTooltipModule
     
   ],
   providers: [],

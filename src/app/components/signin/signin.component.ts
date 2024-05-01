@@ -43,7 +43,7 @@ export class SigninComponent implements OnInit {
     }).subscribe( results =>{localStorage.setItem("AuthToken", results.data)
      console.log(results);
      
-     // this.router.navigate(['/dashboard'])
+     this.router.navigate(['/dashboard'])
     },error=>{console.log(error)});
 
 
